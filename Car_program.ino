@@ -2,7 +2,7 @@
 #define ECHO 12
 #define TRIG 7
 
-
+//hi harrison
 void setup() {
   pinMode(ECHO,INPUT); //Initialise pin 12 as an input
   pinMode(TRIG,OUTPUT); //Initialise pin 7 as an output
