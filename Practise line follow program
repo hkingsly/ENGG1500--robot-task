@@ -1,0 +1,58 @@
+//#define LS A5      // left sensor
+#define LS2 A3
+
+//#define RS A1     // right sensor
+#define RS2 A2
+/*-------definning Outputs------*/
+#define LM1 8       // left motor
+#define LM2 9       // left motor
+#define RM1 10       // right motor
+#define RM2 11       // right motor
+
+void setup()
+{
+ // pinMode(LS, INPUT);
+  pinMode(LS2, INPUT);
+ // pinMode(RS, INPUT);
+  pinMode(RS2, INPUT);
+  
+  pinMode(LM1, OUTPUT);
+  pinMode(LM2, OUTPUT);
+  pinMode(RM1, OUTPUT);
+  pinMode(RM2, OUTPUT);
+}
+
+void loop()
+{
+  if(digitalRead(LS2) && digitalRead(RS2))     // Move Forward
+  {
+    digitalWrite(LM1, HIGH);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, HIGH);
+    digitalWrite(RM2, LOW);
+  }
+  
+  if(!(digitalRead(LS2)) && digitalRead(RS2))     // Turn right
+  {
+    digitalWrite(LM1, LOW);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, HIGH);
+    digitalWrite(RM2, LOW);
+  }
+  
+  if(digitalRead(LS2) && !(digitalRead(RS2)))     // turn left
+  {
+    digitalWrite(LM1, HIGH);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, LOW);
+    digitalWrite(RM2, LOW);
+  }
+  
+  if(!(digitalRead(LS2)) && !(digitalRead(RS2)))     // stop
+  {
+    digitalWrite(LM1, LOW);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, LOW);
+    digitalWrite(RM2, LOW);
+  }
+}
